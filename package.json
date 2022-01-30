@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "startt": "node index.js",
     "test": "node test.js"
   },
   "dependencies": {
