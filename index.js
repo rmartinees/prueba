@@ -53,8 +53,9 @@ express()
 	  for (let i = 0; i < result.rows.length; i++) {
 		result.rows[i].dirviento=vientos[result.rows[i].dirviento];
  	  }
-	 
+	 if (result.rows[0])
       result.rows[0].campo=process.env.CAMPO;
+     else let result.rows[0]=process.env.CAMPO;
     
       const results = { 'results': (result) ? result.rows : null};
 	  console.log("MAMAMAMAM");
