@@ -39,9 +39,9 @@
     <div class="container">
       <h2>Meteorología en <span id="Campo">
           <% if (results[0]) { %>
-            <%= results[0].campo %> mmmmm  -
-            <%= results[0].angulo %>
-              <% } %>
+            <%= results[0].campo %> mmmmm -
+              <%= results[0].angulo %>
+                <% } %>
         </span></h2>
 
       <canvas></canvas>
@@ -63,14 +63,19 @@
       <div class="parent">
         <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
           alt="Sin imagen aerodromo">
-        <img src="https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg" class="image2" data-rotate="90" alt="Manga de viento">
+        <img src="https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg" class="image2"
+          data-rotate="90" alt="Manga de viento">
       </div>
 
       <script>
         $('img').each(function () {
           var deg = $(this).data('rotate') || 0;
           //$(this).data('rotate')
-          var rotate = 'rotate(' + parseInt(results[0].angulo)*22.5 + 'deg)';
+          var rotate = 'rotate('
+            <% if (results[0]) { %>
+              <%= results[0].angulo %>
+              <% } %>
+            * 22 + 'deg)';
           console.log(rotate);
           $(this).css({
             '-webkit-transform': rotate,
