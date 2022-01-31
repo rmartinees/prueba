@@ -40,25 +40,17 @@ express()
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM tiempo');
-	  //console.log("HOLA :"+result.rows[0].dirviento);
-	  //console.log(result.rows[0].dirviento-process.env.TIMES);  // Aqui corrijo viento y traduzco a nuevo valor visible N, NE , S , SE etc
 	  let vientos = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"  ];
-	  //result.rows[0].dirviento=vientos[result.rows[0].dirviento]
-	  //result.rows().map(function() {
-       // this.dirviento=vientos[this.dirviento];
-	   //});
-	   
-	 	   
-	   
+	 
 	  for (let i = 0; i < result.rows.length; i++) {
-		result.rows[i].dirviento=vientos[result.rows[i].dirviento];
+		  console.log("Viento = "+	result.rows[i].dirviento);
+		  console.log(result.rows[i].dirviento - process.env.TIMES);
+		result.rows[i].dirviento = vientos[result.rows[i].dirviento - process.env.TIMES];
  	  }
-	 if (result.rows.length)
-      result.rows[0].campo=process.env.CAMPO;
+	  if (result.rows.length)
+         result.rows[0].campo=process.env.CAMPO;
      
       const results = { 'results': (result) ? result.rows : null};
-	  console.log("MAMAMAMAM");
-	  console.log(results);
       res.render('pages/db', results );
       client.release();
     } catch (err) {
@@ -66,6 +58,7 @@ express()
       res.send("Error " + err);
     }
   })
+
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
