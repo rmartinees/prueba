@@ -16,7 +16,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => {
-	  console.log(window.location.search.substr(1));
+	  console.log(location.search.substr(1));
 	  res.render('pages/index')})
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
