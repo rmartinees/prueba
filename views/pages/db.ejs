@@ -1,52 +1,86 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <%- include ("../partials/header.ejs") %>
-  <style>
-    .rotate_image {
-            -webkit-transform: rotate(45deg);
-            -moz-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            -o-transform: rotate(45deg);
-            transform: rotate(45deg);
-        }
-  
-  </style>
+    <style>
+      .parent {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+
+      .image1 {
+        position: relative;
+        top: 0;
+        left: 0;
+        border: 1px whitesmoke;
+      }
+
+      .image2 {
+        position: absolute;
+        top: 70px;
+        left: 200px;
+        width: 50px;
+        border: 1px whitesmoke;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+    </style>
 </head>
 
 <body>
 
-<%- include ("../partials/nav.ejs") %>
+  <%- include ("../partials/nav.ejs") %>
+    <div class="container">
+      <h2>Meteorología en <span id="Campo">
+          <% if (results[0]) { %>
+            <%= results[0].campo %>
+              <% } %>
+        </span></h2>
 
-<div class="container">
-<h2>Meteorología en <span id="Campo">
-  <% if (results[0]) { %>
-      <%= results[0].campo %>
-  <% } %>
-</span></h2>
+      <div class="parent">
+        <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1" alt="Sin imagen aerodromo">
+        <img src="https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg" class="image2" alt="Manga de viento">
+      </div>
 
-<img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" alt="Sin imagen aerodromo">
+      <table style="width:100%">
+        <tr>
+          <th>Fecha</th>
+          <th>Viento</th>
+          <th>MaxViento</th>
+          <th>DirViento</th>
+          <th>Temperatura</th>
+        </tr>
+        <% results.forEach(function(r) { %>
+          <tr>
+            <td>
+              <%= r.fecha %>
+            </td>
+            <td>
+              <%= r.veloviento %>
+            </td>
+            <td>
+              <%= r.maxviento %>
+            </td>
+            <td>
+              <%= r.dirviento %>
+            </td>
+            <td>
+              <%= r.temp %>
+            </td>
+          </tr>
+          <% }); %>
+      </table>
 
-<img src="https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg" width=50px class="rotate_image" alt="Manga de viento">
-
-<table  style="width:100%">
-  <tr>
-    <th>Fecha</th>
-    <th>Viento</th>
-    <th>MaxViento</th>
-    <th>DirViento</th>
-    <th>Temperatura</th>
-  </tr>
-    <% results.forEach(function(r) { %>
-        <tr><td> <%= r.fecha %>  </td>  <td> <%= r.veloviento %> </td> <td> <%= r.maxviento %></td><td> <%= r.dirviento %> </td><td> <%= r.temp %></td></tr>
-    <% }); %>
-</table>
-
-</div>
-<script>
-  document.getElementById("Campo").innerHTML = process.env.TIMES
-</script>
+    </div>
+    <script>
+      document.getElementById("Campo").innerHTML = process.env.TIMES
+    </script>
 
 </body>
+
 </html>
-º
