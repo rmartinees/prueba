@@ -9,8 +9,10 @@
 <%- include ("../partials/nav.ejs") %>
 
 <div class="container">
-<h2>Meteorología en el campo de <span id="Campo">
-  <%= results[0].campo %>
+<h2>Meteorología en <span id="Campo">
+  <% if (results[0]) { %>
+      <%= results[0].campo %>
+  <% } %>
 </span></h2>
 
 
