@@ -54,7 +54,8 @@
         let img = document.createElement("img");
         img.src = "https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg";
         img.addEventListener("load", () => {
-            //cx.rotate( 22.5*Math.PI/180*results[0].angulo);
+            cx.rotate( 22.5*Math.PI/180*results[0].angulo);
+            context.drawImage(img,0,0);
         });
       </script>
 
