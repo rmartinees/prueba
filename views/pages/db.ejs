@@ -39,7 +39,8 @@
     <div class="container">
       <h2>Meteorología en <span id="Campo">
           <% if (results[0]) { %>
-            <%= results[0].campo %>
+            <%= results[0].campo %> mmmmm  -
+            <%= results[0].angulo %>
               <% } %>
         </span></h2>
 
@@ -70,6 +71,7 @@
           var deg = $(this).data('rotate') || 0;
           //$(this).data('rotate')
           var rotate = 'rotate(' + parseInt(results[0].angulo)*22.5 + 'deg)';
+          console.log(rotate);
           $(this).css({
             '-webkit-transform': rotate,
             '-moz-transform': rotate,
