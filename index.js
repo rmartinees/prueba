@@ -23,20 +23,9 @@ express()
 
 .get('/ins', async (req, res) => {
 	
-    try {
-		  console.log("En insert");
+    try { 
       const client = await pool.connect();
-	  const jjfj = await client.query("insert into tiempo values(96,966,9666,96666,to_timestamp("   + Date.now() /1000.0 + "))");
-	  
-	
-	  ///req.query.fecha);
 	  const jjj = await client.query("insert into tiempo values(" + req.query.temp + "," + req.query.dirviento + "," + req.query.veloviento + "," + req.query.maxviento + "," + "to_timestamp("   + Date.now() /1000.0 + "))");
-	  ///req.query.fecha);
-      const result = await client.query('SELECT * FROM tiempo');
-	  console.log("En insert2");
-	  console.log(jjj);
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
       client.release();
     } catch (err) {
       console.error(err);
@@ -51,7 +40,7 @@ express()
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM tiempo');
 	  console.log("HOLA");
-	  console.log(result.rows[0].dirviento);
+	  console.log(result.rows[0].dirviento);  // Aqui corrijo viento y traduzco a nuevo valor visible N, NE , S , SE etc
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/db', results );
       client.release();
