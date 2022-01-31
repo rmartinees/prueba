@@ -28,7 +28,8 @@ express()
 	  const jjj = await client.query("insert into tiempo values(" + req.query.temp + "," + req.query.dirviento + "," + req.query.veloviento + "," + req.query.maxviento + "," + "to_timestamp(${Date.now()} / 1000.0)");
 	  ///req.query.fecha);
       const result = await client.query('SELECT * FROM tiempo');
-	  
+	  console.log("En insert");
+	  console.log(jjj);
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/db', results );
       client.release();
