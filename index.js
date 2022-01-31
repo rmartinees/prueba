@@ -51,7 +51,7 @@ express()
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM tiempo');
 	  console.log("HOLA");
-	  console.log(results.rows);
+	  console.log(result.rows);
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/db', results );
       client.release();
