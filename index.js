@@ -21,13 +21,14 @@ express()
   .get('/times', (req, res) => res.send(showTimes()))
 
 
-.get('/db', async (req, res) => {
-	console.log("si si PEPEITO");
-	  console.log(req.query.wind );
-	   console.log(req.query.temp);
+.get('/ins', async (req, res) => {
+	
     try {
       const client = await pool.connect();
-      const result = await client.query('SELECT * FROM test_table');
+	  const jjj = await client.query("insert into tiempo values(" + req.query.temp + "," + req.query.dirviento + "," + req.query.veloviento + "," + req.query.maxviento + "," + "to_timestamp(${Date.now()} / 1000.0)");
+	  ///req.query.fecha);
+      const result = await client.query('SELECT * FROM tiempo');
+	  
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/db', results );
       client.release();
@@ -39,6 +40,18 @@ express()
 
 
 
+.get('/db', async (req, res) => {
+    try {
+      const client = await pool.connect();
+      const result = await client.query('SELECT * FROM tiempo');
+      const results = { 'results': (result) ? result.rows : null};
+      res.render('pages/db', results );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
@@ -54,17 +67,3 @@ showTimes = () => {
 
 
 
-
-
-function findGetParameter(parameterName) {
-    var result = null,
-        tmp = [];
-    location.search
-        .substr(1)
-        .split("&")
-        .forEach(function (item) {
-          tmp = item.split("=");
-          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
-        });
-    return result;
-}
