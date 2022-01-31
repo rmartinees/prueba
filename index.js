@@ -43,7 +43,7 @@ express()
 	  let vientos = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"  ];
 	 
 	  for (let i = 0; i < result.rows.length; i++) {
-		result.rows[i].dirviento = vientos[result.rows[i].dirviento - process.env.TIMES];
+		result.rows[i].dirviento = vientos[result.rows[i].dirviento-process.env.TIMES];
  	  }
 	  if (result.rows.length)
          result.rows[0].campo=process.env.CAMPO;
