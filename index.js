@@ -28,7 +28,7 @@ express()
 	  console.log(list.wind );
 	   console.log(list.temp);
 	   console.log("Veamos");
-	   console.log(reg.query.temp);
+	   console.log(req.query.temp);
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM test_table');
