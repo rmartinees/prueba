@@ -26,7 +26,7 @@ express()
     try {
 		  console.log("En insert");
       const client = await pool.connect();
-	  const jjfj = await client.query("insert into tiempo values(6,66,666,6666,to_timestamp("   + Date.now() /1000.0 + "))");
+	  const jjfj = await client.query("insert into tiempo values(96,966,9666,96666,to_timestamp("   + Date.now() /1000.0 + "))");
 	  
 	
 	  ///req.query.fecha);
