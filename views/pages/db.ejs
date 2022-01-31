@@ -10,7 +10,7 @@
 
 <div class="container">
 <h2>Temperatura en el campo de <span id=Campo></span></h2>
-temp  dir  velo  max  fecha<br>
+
 
 <table>
   <tr>
@@ -21,7 +21,7 @@ temp  dir  velo  max  fecha<br>
     <th>Temperatura</th>
   </tr>
     <% results.forEach(function(r) { %>
-        <tr><td> <%= r.fecha %>  </td>  <td> <%= r.veloviento %> </td> td>/td>- <%= r.maxviento %></td><td> <%= r.dirviento %> </td><td> <%= r.temp %></td></tr>
+        <tr><td> <%= r.fecha %>  </td>  <td> <%= r.veloviento %> </td> <td>- <%= r.maxviento %></td><td> <%= r.dirviento %> </td><td> <%= r.temp %></td></tr>
     <% }); %>
 </table>
 
