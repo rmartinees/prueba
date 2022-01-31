@@ -9,7 +9,9 @@
 <%- include ("../partials/nav.ejs") %>
 
 <div class="container">
-<h2>Meteorología en el campo de <span id="Campo"></span></h2>
+<h2>Meteorología en el campo de <span id="Campo">
+  <% results[0].campo %>
+</span></h2>
 
 
 <table  style="width:100%">
