@@ -59,8 +59,6 @@
       <h2>Meteorología fin </h2>
 
 
-      <button onclick="myFunction()">Try it</button>
-
       <div class="parent">
         <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
           alt="Sin imagen aerodromo">
@@ -70,7 +68,8 @@
       <script>
         $('img').each(function () {
           var deg = $(this).data('rotate') || 0;
-          var rotate = 'rotate(' + $(this).data('rotate') + 'deg)';
+          //$(this).data('rotate')
+          var rotate = 'rotate(' + parseInt(results[0].angulo)*22.5 + 'deg)';
           $(this).css({
             '-webkit-transform': rotate,
             '-moz-transform': rotate,
