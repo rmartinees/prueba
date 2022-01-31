@@ -23,11 +23,7 @@ express()
 
 .get('/db', async (req, res) => {
 	console.log("si si PEPEITO");
- var list=req.query;
-	  console.log(req.query);
 	  console.log(req.query.wind );
-	 
-	   console.log("Veamos");
 	   console.log(req.query.temp);
     try {
       const client = await pool.connect();
