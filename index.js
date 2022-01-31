@@ -48,10 +48,22 @@ express()
        // this.dirviento=vientos[this.dirviento];
 	   //});
 	   
+	   var listOfObjects = [];
+var a = ["car", "bike", "scooter"];
+a.forEach(function(entry) {
+    var singleObj = {}
+    singleObj['type'] = 'vehicle';
+    singleObj['value'] = entry;
+    listOfObjects.push(singleObj);
+});
+
+console.log(listOfObjects);
+	   
+	   
 	   
 	  for (let i = 0; i < result.rows.length; i++) {
 		result.rows[i].dirviento=vientos[result.rows[i].dirviento];
-		results.row[i].jaja="PEDRO";
+		result.row[i].jaja="PEDRO";
 	  }
     
       const results = { 'results': (result) ? result.rows : null};
