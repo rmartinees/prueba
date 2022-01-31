@@ -43,21 +43,27 @@
               <% } %>
         </span></h2>
 
+        <canvas></canvas>
+        <script>
+          let cx = document.querySelector("canvas").getContext("2d");
+          let img = document.createElement("img");
+          img.src = "https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg";
+          img.addEventListener("load", () => {
+              cx.rotate( 22.5*Math.PI/180*results[0].angulo);
+              context.drawImage(img,50,50);
+          });
+        </script>
+
+
+
+
+
       <div class="parent">
         <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1" alt="Sin imagen aerodromo">
         <img src="https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg" class="image2" alt="Manga de viento">
       </div>
 
-      <canvas></canvas>
-      <script>
-        let cx = document.querySelector("canvas").getContext("2d");
-        let img = document.createElement("img");
-        img.src = "https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg";
-        img.addEventListener("load", () => {
-            cx.rotate( 22.5*Math.PI/180*results[0].angulo);
-            context.drawImage(img,0,0);
-        });
-      </script>
+     
 
 
       <table style="width:100%">
