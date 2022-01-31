@@ -22,9 +22,9 @@ express()
 
 
 .get('/db', async (req, res) => {
-	console.log("NO NO NO PEPEITO");
+	console.log("si si PEPEITO");
 	
-	  console.log(location.search.substr(1));
+	  console.log(req.query.tag);
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM test_table');
