@@ -55,7 +55,7 @@ express()
  	  }
 	 if (result.rows[0])
       result.rows[0].campo=process.env.CAMPO;
-     else let result.rows[0]=process.env.CAMPO;
+     else let result.rows[0].campo=process.env.CAMPO;
     
       const results = { 'results': (result) ? result.rows : null};
 	  console.log("MAMAMAMAM");
