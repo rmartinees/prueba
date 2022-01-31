@@ -9,13 +9,21 @@
 <%- include ("../partials/nav.ejs") %>
 
 <div class="container">
-<h2>Databasedddd Results</h2>
+<h2>Temperatura en el campo de <span id=Campo></span></h2>
 temp  dir  velo  max  fecha<br>
-<ul>
+
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Viento</th>
+    <th>MaxViento</th>
+    <th>DirViento</th>
+    <th>Temperatura</th>
+  </tr>
     <% results.forEach(function(r) { %>
-        <li><%= r.temp %> - <%= r.dirviento %> - <%= r.veloviento %> - <%= r.maxviento %> - <%= r.fecha %></li>
+        <tr><td> <%= r.fecha %>  </td>  <td> <%= r.veloviento %> </td> td>/td>- <%= r.maxviento %></td><td> <%= r.dirviento %> </td><td> <%= r.temp %></td></tr>
     <% }); %>
-</ul>
+</table>
 
 </div>
 
