@@ -51,7 +51,7 @@
           <% if (results[0]) %>
             <%= results[0].campo %>
         </span></h2>
-      
+
       <div class="parent">
         <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
           alt="Sin imagen aerodromo">
@@ -63,7 +63,8 @@
         $('img').each(function () {
           var deg = $(this).data('rotate') || 0;
           //$(this).data('rotate')
-          var rotate = 'rotate(' + deg + 'deg)';
+          var rotate = 'rotate(' + 
+          <%= results[0].angulo %> * 45 + 'deg)';
           console.log(rotate);
           $(this).css({
             '-webkit-transform': rotate,
@@ -106,4 +107,5 @@
       </table>
     </div>
 </body>
+
 </html>
