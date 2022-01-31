@@ -26,9 +26,11 @@ express()
     try {
 		  console.log("En insert");
       const client = await pool.connect();
-	  const jjfj = await client.query("insert into tiempo values(6,66,666,6666,to_timestamp(${Date.now()} / 1000.0)");
+	  const jjfj = await client.query("insert into tiempo values(6,66,666,6666,to_timestamp("   + Date.now() /1000.0 + ")");
+	  
+	
 	  ///req.query.fecha);
-	  const jjj = await client.query("insert into tiempo values(" + req.query.temp + "," + req.query.dirviento + "," + req.query.veloviento + "," + req.query.maxviento + "," + "to_timestamp(${Date.now()} / 1000.0)");
+	  const jjj = await client.query("insert into tiempo values(" + req.query.temp + "," + req.query.dirviento + "," + req.query.veloviento + "," + req.query.maxviento + "," + "to_timestamp("   + Date.now() /1000.0 + ")");
 	  ///req.query.fecha);
       const result = await client.query('SELECT * FROM tiempo');
 	  console.log("En insert2");
