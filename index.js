@@ -48,9 +48,9 @@ express()
       console.log("ASTUN");
 	  for (let i = 0; i < result.rows.length; i++) {
 		 console.log(result.rows[i].dirviento);
-		 console.log(result.rows[i].dirviento + process.env.TIMES);
-		 console.log((result.rows[i].dirviento + process.env.TIMES)%16);
-         result.rows[i].dirviento = vientos[(result.rows[i].dirviento + process.env.TIMES)%16];
+		 console.log(result.rows[i].dirviento + parseInt(process.env.TIMES));
+		 console.log((result.rows[i].dirviento + parseInt(process.env.TIMES))%16);
+         result.rows[i].dirviento = vientos[(result.rows[i].dirviento + parseInt(process.env.TIMES))%16];
  	  }
 	  	  
       const results = { 'results': (result) ? result.rows : null};
