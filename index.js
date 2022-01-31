@@ -45,9 +45,11 @@ express()
 	 
 	  if (result.rows.length)
          result.rows[0].campo=process.env.CAMPO;
-      for (let i = 0; i < result.rows.length; i++) {
-		 result.rows[i].dirviento = vientos[result.rows[i].dirviento - process.env.TIMES];
+      
+	  for (let i = 0; i < result.rows.length; i++) {
+         result.rows[i].dirviento = vientos[result.rows[i].dirviento - process.env.TIMES];
  	  }
+	  	  
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/db', results );
       client.release();
