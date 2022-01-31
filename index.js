@@ -64,10 +64,8 @@ console.log(listOfObjects);
 	  for (let i = 0; i < result.rows.length; i++) {
 		result.rows[i].dirviento=vientos[result.rows[i].dirviento];
  	  }
-	  	 
-	  var singleObj = {}
-      singleObj['nombrecampo'] = 'PEDRITO';
-      result.rows[0].push(singleObj);
+	 
+      result.rows[0].campo="PE";
     
       const results = { 'results': (result) ? result.rows : null};
 	  console.log("MAMAMAMAM");
