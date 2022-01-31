@@ -22,6 +22,7 @@ express()
 
 
 .get('/db', async (req, res) => {
+	console.log("PEPEITO");
 	  console.log(location.search.substr(1));
     try {
       const client = await pool.connect();
