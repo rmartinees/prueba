@@ -53,7 +53,7 @@ express()
 		result.rows[i].dirviento=vientos[result.rows[i].dirviento];
 	  }
     
-      const results = { 'results': (result) ? result.rows + "nombre : Pepe": null};
+      const results = { 'results': (result) ? result.rows : null};
 	  console.log("MAMAMAMAM");
 	  console.log(results);
       res.render('pages/db', results );
