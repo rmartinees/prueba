@@ -55,8 +55,12 @@ express()
  	  }
 	 if (result.rows[0])
       result.rows[0].campo=process.env.CAMPO;
-     else let result.rows[0].campo=process.env.CAMPO;
-    
+     else {
+		 
+		 var result.rows = new Array();
+		 result.push(new Object());
+		 let result.rows[0].campo=process.env.CAMPO;
+	 }
       const results = { 'results': (result) ? result.rows : null};
 	  console.log("MAMAMAMAM");
 	  console.log(results);
