@@ -23,7 +23,7 @@
         left: 200px;
         width: 50px;
         border: 1px whitesmoke;
-    
+
         -webkit-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         -ms-transform: rotate(-45deg);
@@ -43,34 +43,43 @@
               <% } %>
         </span></h2>
 
-        <canvas></canvas>
-        <script>
-          let cx = document.querySelector("canvas").getContext("2d");
-          let img = document.createElement("img");
-          img.src = "https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg";
-          img.addEventListener("load", () => {
-              //cx.rotate( 22.5*Math.PI/180*results[0].angulo);
-              cx.drawImage(img,50,50,500,500);
-          });
-        </script>
+      <canvas></canvas>
+      <script>
+        let cx = document.querySelector("canvas").getContext("2d");
+        let img = document.createElement("img");
+        img.src = "https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg";
+        img.addEventListener("load", () => {
+          //cx.rotate( 22.5*Math.PI/180*results[0].angulo);
+          cx.drawImage(img, 50, 50, 500, 500);
+        });
+      </script>
 
 
- 
-<h2>Meteorología fin </h2>
+
+      <h2>Meteorología fin </h2>
 
 
-<button onclick="myFunction()">Try it</button>
+      <button onclick="myFunction()">Try it</button>
 
       <div class="parent">
-        <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1" alt="Sin imagen aerodromo">
-        <img src="https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg" class="image2" alt="Manga de viento">
+        <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
+          alt="Sin imagen aerodromo">
+        <img src="https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg" class="image2" data-rotate="90" alt="Manga de viento">
       </div>
 
-     <script>
-       function myFunction() {
-       document.getElementsByClassName("image2").style.transform="rotate(20deg)";
-       }
-     </script>
+      <script>
+        $('img').each(function () {
+          var deg = $(this).data('rotate') || 0;
+          var rotate = 'rotate(' + $(this).data('rotate') + 'deg)';
+          $(this).css({
+            '-webkit-transform': rotate,
+            '-moz-transform': rotate,
+            '-o-transform': rotate,
+            '-ms-transform': rotate,
+            'transform': rotate
+          });
+        });
+      </script>
 
 
       <table style="width:100%">
