@@ -40,8 +40,8 @@ express()
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM tiempo');
-	  console.log("HOLA");
-	  console.log(result.rows[0].dirviento);  // Aqui corrijo viento y traduzco a nuevo valor visible N, NE , S , SE etc
+	  console.log("HOLA :"+result.rows[0].dirviento);
+	  console.log(result.rows[0].dirviento-process.env.times);  // Aqui corrijo viento y traduzco a nuevo valor visible N, NE , S , SE etc
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/db', results );
       client.release();
