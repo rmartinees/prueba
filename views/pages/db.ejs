@@ -80,11 +80,7 @@
         $('img').each(function () {
           var deg = $(this).data('rotate') || 0;
           //$(this).data('rotate')
-          var rotate = 'rotate('
-            <% if (results[0]) { %>
-              <%= results[0].angulo %>
-              <% } %>
-            * 22 + 'deg)';
+          var rotate = 'rotate(' + deg + 'deg)';
           console.log(rotate);
           $(this).css({
             '-webkit-transform': rotate,
