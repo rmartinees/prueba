@@ -24,7 +24,7 @@ express()
 .get('/db', async (req, res) => {
 	console.log("si si PEPEITO");
 	
-	  console.log(req.query.tag);
+	  console.log(req.query);
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM test_table');
