@@ -16,13 +16,13 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => {
-	  console.log(location.search.substr(1));
 	  res.render('pages/index')})
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
 
 
 .get('/db', async (req, res) => {
+	  console.log(location.search.substr(1));
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM test_table');
