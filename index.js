@@ -51,6 +51,7 @@ express()
 	   
 	  for (let i = 0; i < result.rows.length; i++) {
 		result.rows[i].dirviento=vientos[result.rows[i].dirviento];
+		results.row[i].jaja="PEDRO";
 	  }
     
       const results = { 'results': (result) ? result.rows : null};
