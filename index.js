@@ -44,7 +44,7 @@ express()
 	  console.log(result.rows[0].dirviento-process.env.TIMES);  // Aqui corrijo viento y traduzco a nuevo valor visible N, NE , S , SE etc
 	  let vientos = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"  ];
 	  //result.rows[0].dirviento=vientos[result.rows[0].dirviento]
-	  result.each(function() {
+	  result.rows.each(function() {
         this.dirviento=vientos[this.dirviento];
     });
 	  
