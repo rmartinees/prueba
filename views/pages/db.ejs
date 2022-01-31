@@ -37,7 +37,7 @@
         left: 200px;
         width: 50px;
         border: 1px whitesmoke;
- 
+
       }
     </style>
 </head>
@@ -46,85 +46,68 @@
 
   <%- include ("../partials/nav.ejs") %>
     <div class="container">
-      <h2>Meteorología en <span id="Campo">
-          <% if (results[0]) { %>
-            <%= results[0].campo %> mmmmm -
-              <%= results[0].angulo %>
-                <% } %>
-        </span></h2>
+      <h2>Meteorología en <span id="Campo"></span></h2>
+      MEsa
+      <% if (results[0]) %>
+        <%= results[0].campo %>
 
-      <canvas></canvas>
-      <script>
-        let cx = document.querySelector("canvas").getContext("2d");
-        let img = document.createElement("img");
-        img.src = "https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg";
-        img.addEventListener("load", () => {
-          //cx.rotate( 22.5*Math.PI/180*results[0].angulo);
-          cx.drawImage(img, 50, 50, 500, 500);
-        });
-      </script>
+          es
+          <div class="parent">
+            <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
+              alt="Sin imagen aerodromo">
+            <img src="https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg" class="image2"
+              data-rotate="90" alt="Manga de viento">
+          </div>
 
-
-
-      <h2>Meteorología fin </h2>
-
-
-      <div class="parent">
-        <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
-          alt="Sin imagen aerodromo">
-        <img src="https://www.darrera.com/wp/wp-content/uploads/2018/04/3r-wsck-manga-viento.jpg" class="image2"
-          data-rotate="90" alt="Manga de viento">
-      </div>
-
-      <script>
-        $('img').each(function () {
-          var deg = $(this).data('rotate') || 0;
-          //$(this).data('rotate')
-          var rotate = 'rotate(' + deg + 'deg)';
-          console.log(rotate);
-          $(this).css({
-            '-webkit-transform': rotate,
-            '-moz-transform': rotate,
-            '-o-transform': rotate,
-            '-ms-transform': rotate,
-            'transform': rotate
-          });
-        });
-      </script>
+          <script>
+            $('img').each(function () {
+              var deg = $(this).data('rotate') || 0;
+              //$(this).data('rotate')
+              var rotate = 'rotate(' + deg + 'deg)';
+              console.log(rotate);
+              $(this).css({
+                '-webkit-transform': rotate,
+                '-moz-transform': rotate,
+                '-o-transform': rotate,
+                '-ms-transform': rotate,
+                'transform': rotate
+              });
+            });
+          </script>
 
 
-      <table style="width:100%">
-        <tr>
-          <th>Fecha</th>
-          <th>Viento</th>
-          <th>MaxViento</th>
-          <th>DirViento</th>
-          <th>Temperatura</th>
-        </tr>
-        <% results.forEach(function(r) { %>
-          <tr>
-            <td>
-              <%= r.fecha %>
-            </td>
-            <td>
-              <%= r.veloviento %>
-            </td>
-            <td>
-              <%= r.maxviento %>
-            </td>
-            <td>
-              <%= r.dirviento %>
-            </td>
-            <td>
-              <%= r.temp %>
-            </td>
-          </tr>
-          <% }); %>
-      </table>
+          <table style="width:100%">
+            <tr>
+              <th>Fecha</th>
+              <th>Viento</th>
+              <th>MaxViento</th>
+              <th>DirViento</th>
+              <th>Temperatura</th>
+            </tr>
+            <% results.forEach(function(r) { %>
+              <tr>
+                <td>
+                  <%= r.fecha %>
+                </td>
+                <td>
+                  <%= r.veloviento %>
+                </td>
+                <td>
+                  <%= r.maxviento %>
+                </td>
+                <td>
+                  <%= r.dirviento %>
+                </td>
+                <td>
+                  <%= r.temp %>
+                </td>
+              </tr>
+              <% }); %>
+          </table>
 
     </div>
     <script>
-      document.getElementById("Campo").innerHTML = process.env.TIMES
+      document.getElementById("Campo").innerHTML = process.env.CAMPO
     </script>
 
 </body>
