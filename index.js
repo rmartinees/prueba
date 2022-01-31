@@ -43,14 +43,13 @@ express()
       const result = await client.query('SELECT * FROM tiempo');
 	  let vientos = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"  ];
 	 
-	  if (result.rows.length)
+	  if (result.rows.length) {
          result.rows[0].campo=process.env.CAMPO;
-      console.log("ASTUN");
+		  result.rows[0].angulo=process.env.ANGULO;
+	  }
+	 
 	  for (let i = 0; i < result.rows.length; i++) {
-		 console.log(result.rows[i].dirviento);
-		 console.log(result.rows[i].dirviento + parseInt(process.env.TIMES));
-		 console.log((result.rows[i].dirviento + parseInt(process.env.TIMES))%16);
-         result.rows[i].dirviento = vientos[(result.rows[i].dirviento + parseInt(process.env.TIMES))%16];
+         result.rows[i].dirviento = vientos[(result.rows[i].dirviento + parseInt(process.env.ANGULO))%16];
  	  }
 	  	  
       const results = { 'results': (result) ? result.rows : null};
