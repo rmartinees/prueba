@@ -36,18 +36,18 @@ express()
 
 
 
+
 .get('/db', async (req, res) => {
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM tiempo');
 	  let vientos = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"  ];
 	 
-	  for (let i = 0; i < result.rows.length; i++) {
-		result.rows[i].dirviento = vientos[result.rows[i].dirviento-process.env.TIMES];
- 	  }
 	  if (result.rows.length)
          result.rows[0].campo=process.env.CAMPO;
-     
+      for (let i = 0; i < result.rows.length; i++) {
+		 result.rows[i].dirviento = vientos[result.rows[i].dirviento - process.env.TIMES];
+ 	  }
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/db', results );
       client.release();
