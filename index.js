@@ -40,32 +40,21 @@ express()
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM tiempo');
-	  console.log("HOLA :"+result.rows[0].dirviento);
-	  console.log(result.rows[0].dirviento-process.env.TIMES);  // Aqui corrijo viento y traduzco a nuevo valor visible N, NE , S , SE etc
+	  //console.log("HOLA :"+result.rows[0].dirviento);
+	  //console.log(result.rows[0].dirviento-process.env.TIMES);  // Aqui corrijo viento y traduzco a nuevo valor visible N, NE , S , SE etc
 	  let vientos = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"  ];
 	  //result.rows[0].dirviento=vientos[result.rows[0].dirviento]
 	  //result.rows().map(function() {
        // this.dirviento=vientos[this.dirviento];
 	   //});
 	   
-	   var listOfObjects = [];
-var a = ["car", "bike", "scooter"];
-a.forEach(function(entry) {
-    var singleObj = {}
-    singleObj['type'] = 'vehicle';
-    singleObj['value'] = entry;
-    listOfObjects.push(singleObj);
-});
-
-console.log(listOfObjects);
-	   
-	   
+	 	   
 	   
 	  for (let i = 0; i < result.rows.length; i++) {
 		result.rows[i].dirviento=vientos[result.rows[i].dirviento];
  	  }
 	 
-      result.rows[0].campo="PE";
+      result.rows[0].campo=process.env.CAMPO;
     
       const results = { 'results': (result) ? result.rows : null};
 	  console.log("MAMAMAMAM");
@@ -90,5 +79,18 @@ showTimes = () => {
   return result;
 }
 
+/*
 
+  var listOfObjects = [];
+var a = ["car", "bike", "scooter"];
+a.forEach(function(entry) {
+    var singleObj = {}
+    singleObj['type'] = 'vehicle';
+    singleObj['value'] = entry;
+    listOfObjects.push(singleObj);
+});
+
+console.log(listOfObjects);
+	   
+*/
 
