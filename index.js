@@ -47,7 +47,7 @@ express()
          result.rows[0].campo=process.env.CAMPO;
       
 	  for (let i = 0; i < result.rows.length; i++) {
-         result.rows[i].dirviento = vientos[result.rows[i].dirviento - process.env.TIMES];
+         result.rows[i].dirviento = vientos[(result.rows[i].dirviento + process.env.TIMES)%16];
  	  }
 	  	  
       const results = { 'results': (result) ? result.rows : null};
