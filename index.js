@@ -36,7 +36,7 @@ express()
   .get('/db', async (req, res) => {
     try {
       const client = await pool.connect();
-      const result = await client.query('SELECT * FROM tiempo');
+      const result = await client.query('SELECT * FROM tiempo  order by f desc');
       let vientos = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"];
 
       if (result.rows.length) {
