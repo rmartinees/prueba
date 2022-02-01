@@ -63,7 +63,7 @@
           var deg = $(this).data('rotate') || 0;
           //$(this).data('rotate')
           var rotate = 'rotate(' + 
-          <%= results[0].angulo %> * 22.5 + 'deg)';
+           <%= results[0].d %> * 22.5 + 'deg)';
           console.log(rotate);
           $(this).css({
             '-webkit-transform': rotate,
