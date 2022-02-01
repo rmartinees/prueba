@@ -43,22 +43,20 @@
 </head>
 
 <body>
-</div>
-<img src="/vientos/rosaviento.jpg" alt="Rosa de vientos">
+  </div>
 
-    <div class="container">
+  <div class="container">
 
-      <h2>Meteorología en <span id="Campo">
+    <h2>Meteorología en <span id="Campo">
 
-          <% if (results[0]) %>
-            <%= results[0].campo %>
-        </span></h2>
-
-      <div class="parent">
-        <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
-          alt="Sin imagen aerodromo">
-        <img src="/vientos/manga-vientos.jpg" class="image2"
-          data-rotate="90" alt="Manga de viento">
+        <% if (results[0]) %>
+          <%= results[0].campo %>
+      </span></h2>
+    <img src="/vientos/rosaviento.jpg" alt="Rosa de vientos">
+    <div class="parent">
+      <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
+        alt="Sin imagen aerodromo">
+      <img src="/vientos/manga-viento.jpg" class="image2" data-rotate="90" alt="Manga de viento">
 
       <script>
         $('.image2').each(function () {
