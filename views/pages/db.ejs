@@ -52,18 +52,33 @@
         <% if (results[0]) %>
           <%= results[0].campo %>
       </span></h2>
-    <img src="/vientos/rosaviento.jpg" class="image2" data-rotate="90" alt="Rosa de vientos">
+    <img src="/vientos/rosaviento.jpg" class="image4" data-rotate="90" alt="Rosa de vientos">
     <div class="parent">
       <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
         alt="Sin imagen aerodromo">
       <img src="/vientos/mangaviento.jpg" class="image2" data-rotate="90" alt="Manga de viento">
 
       <script>
-        $('.image2').each(function () {
+        $('.image4').each(function () {
           var deg = $(this).data('rotate') || 0;
           //$(this).data('rotate')
           var rotate = 'rotate(' + 
-           <%= results[0].d %> * 22.5 + 'deg)';
+          ( <%= results[0].angulo %> +  <%= results[0].d %>) * 22.5 + 'deg)';
+          console.log(rotate);
+          $(this).css({
+            '-webkit-transform': rotate,
+            '-moz-transform': rotate,
+            '-o-transform': rotate,
+            '-ms-transform': rotate,
+            'transform': rotate
+          });
+        });
+
+        $('.image4').each(function () {
+          var deg = $(this).data('rotate') || 0;
+          //$(this).data('rotate')
+          var rotate = 'rotate(' + 
+          <%= results[0].angulo %> * 22.5 + 'deg)';
           console.log(rotate);
           $(this).css({
             '-webkit-transform': rotate,
