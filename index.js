@@ -46,6 +46,7 @@ express()
 
       for (let i = 0; i < result.rows.length; i++) {
         result.rows[i].d1 = vientos[(result.rows[i].d + parseInt(process.env.ANGULO)) % 16];
+        result.rows[i].d1 = vientos[result.rows[i].d];
       }
 
       const results = { 'results': (result) ? result.rows : null };
