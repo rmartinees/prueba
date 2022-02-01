@@ -77,31 +77,42 @@
         });
       </script>
 
-
+      <!---  
+        f - date
+        v - instantAirSpeed
+        a - averageSpeed
+        h - maxSpeed
+        d - windDir
+        t - temp
+      -->
       <table style="width:100%">
         <tr>
           <th>Fecha</th>
           <th>Viento</th>
-          <th>MaxViento</th>
-          <th>DirViento</th>
-          <th>Temperatura</th>
+          <th>Promedio</th>
+          <th>Max</th>
+          <th>Dir</th>
+          <th>Temp</th>
         </tr>
         <% results.forEach(function(r) { %>
           <tr>
             <td>
-              <%= r.fecha %>
+              <%= r.f %>
             </td>
             <td>
-              <%= r.veloviento %>
+              <%= r.v %>
             </td>
             <td>
-              <%= r.maxviento %>
+              <%= r.a %>
             </td>
             <td>
-              <%= r.dirviento %>
+              <%= r.h %>
             </td>
             <td>
-              <%= r.temp %>
+              <%= r.d %>
+            </td>
+            <td>
+              <%= r.t %>
             </td>
           </tr>
           <% }); %>

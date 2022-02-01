@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const cool=require('cool-ascii-faces')
+const cool = require('cool-ascii-faces')
 
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -16,17 +16,16 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => {
-	  res.render('pages/index')})
-  .get('/cool', (req, res) => res.send(cool()))
-  .get('/times', (req, res) => res.send(showTimes()))
+    res.render('pages/index')
+  })
 
 
-.get('/ins', async (req, res) => {
-	
-    try { 
+  .get('/ins', async (req, res) => {
+
+    try {
       const client = await pool.connect();
-	  const jjj = await client.query("insert into tiempo values(" + req.query.temp + "," + req.query.dirviento + "," + req.query.veloviento + "," + req.query.maxviento + "," + "to_timestamp("   + Date.now() /1000.0 + "))");
-	  res.status(200).send('OK')
+      const jjj = await client.query("insert into tiempo values(" + req.query.temp + "," + req.query.dirviento + "," + req.query.veloviento + "," + req.query.maxviento + "," + "to_timestamp(" + Date.now() / 1000.0 + "))");
+      res.status(200).send('OK')
       client.release();
     } catch (err) {
       console.error(err);
@@ -34,26 +33,23 @@ express()
     }
   })
 
-
-
-
-.get('/db', async (req, res) => {
+  .get('/db', async (req, res) => {
     try {
       const client = await pool.connect();
       const result = await client.query('SELECT * FROM tiempo');
-	  let vientos = [ "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"  ];
-	 
-	  if (result.rows.length) {
-         result.rows[0].campo=process.env.CAMPO;
-		  result.rows[0].angulo=process.env.ANGULO;
-	  }
-	 
-	  for (let i = 0; i < result.rows.length; i++) {
-         result.rows[i].dirviento = vientos[(result.rows[i].dirviento + parseInt(process.env.ANGULO))%16];
- 	  }
-	  	  
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
+      let vientos = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"];
+
+      if (result.rows.length) {
+        result.rows[0].campo = process.env.CAMPO;
+        result.rows[0].angulo = process.env.ANGULO;
+      }
+
+      for (let i = 0; i < result.rows.length; i++) {
+        result.rows[i].d = vientos[(result.rows[i].d + parseInt(process.env.ANGULO)) % 16];
+      }
+
+      const results = { 'results': (result) ? result.rows : null };
+      res.render('pages/db', results);
       client.release();
     } catch (err) {
       console.error(err);
@@ -62,30 +58,5 @@ express()
   })
 
 
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
-
-showTimes = () => {
-  let result = '';
-  const times = process.env.TIMES || 5;
-  for (i = 0; i < times; i++) {
-    result += i + ' ';
-  }
-  return result;
-}
-
-/*
-
-  var listOfObjects = [];
-var a = ["car", "bike", "scooter"];
-a.forEach(function(entry) {
-    var singleObj = {}
-    singleObj['type'] = 'vehicle';
-    singleObj['value'] = entry;
-    listOfObjects.push(singleObj);
-});
-
-console.log(listOfObjects);
-	   
-*/
+  .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
