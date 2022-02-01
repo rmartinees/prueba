@@ -24,7 +24,7 @@ express()
 
     try {
       const client = await pool.connect();
-      const jjj = await client.query("insert into tiempo values(" + req.query.temp + "," + req.query.dirviento + "," + req.query.veloviento + "," + req.query.maxviento + "," + "to_timestamp(" + Date.now() / 1000.0 + "))");
+      const jjj = await client.query("insert into tiempo values(" + req.query.t + "," + req.query.h  + "," + req.query.a + "," + req.query.f + "," + req.query.d + "," + req.query.v );
       res.status(200).send('OK')
       client.release();
     } catch (err) {
