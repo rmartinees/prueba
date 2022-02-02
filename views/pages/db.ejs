@@ -87,6 +87,19 @@
       <img src="/vientos/mangaviento.png" class="manga" data-rotate="90" alt="Manga de viento">
       <img id="veloc" src="/vientos/Manga0.png" class="campo" alt="Manga velocidad de viento">
       <script>
+        
+        if (rotate[0].a > 25)
+          document.getElementById("veloc").src = "/viento/Manga280.png";
+        else if (rotate[0].a > 19)
+          document.getElementById("veloc").src = "/viento/Manga220.png";
+        else if (rotate[0].a > 13.5)
+          document.getElementById("veloc").src = "/viento/Manga160.png";
+        else if (rotate[0].a > 8.5)
+          document.getElementById("veloc").src = "/viento/Manga110.png";
+        else if (rotate[0].a > 3)
+          document.getElementById("veloc").src = "/viento/Manga55.png";
+
+          
         $('.manga').each(function () {
           var deg = $(this).data('rotate') || 0;
           //$(this).data('rotate')
@@ -116,17 +129,6 @@
             'transform': rotate
           });
         });
-
-        if (rotate[0].a > 25)
-          document.getElementById("veloc").src = "/viento/Manga280.png";
-        else if (rotate[0].a > 19)
-          document.getElementById("veloc").src = "/viento/Manga220.png";
-        else if (rotate[0].a > 13.5)
-          document.getElementById("veloc").src = "/viento/Manga160.png";
-        else if (rotate[0].a > 8.5)
-          document.getElementById("veloc").src = "/viento/Manga110.png";
-        else if (rotate[0].a > 3)
-          document.getElementById("veloc").src = "/viento/Manga55.png";
 
       </script>
 
