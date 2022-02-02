@@ -32,6 +32,7 @@
         width: 150px;
         border: 1px whitesmoke;
       }
+
       .velviento {
         position: absolute;
         top: 70px;
@@ -48,14 +49,11 @@
     </style>
 </head>
 
-<body onload="myFunction()">
+<body>
   <div class="container">
-
-    <h2>Meteorología en
-      <% if (results[0]) %>
-        <%= results[0].campo %>
-    </h2>
-
+    <h1>Meteorología en <%= results[0].campo %>
+    </h1>
+    <br>
     <div class="parent">
       <div id="salida">
         <table style="color:blue; text-align:center; font-size:20px; width:48%">
@@ -92,15 +90,15 @@
       <script>
 
         if ( <%= results[0].a %> > 25)
-          document.getElementById("veloc").src = "/vientos/Manga280.png";
+        document.getElementById("veloc").src = "/vientos/Manga280.png";
         else if (<%= results[0].a %> > 19)
-          document.getElementById("veloc").src = "/vientos/Manga220.png";
+        document.getElementById("veloc").src = "/vientos/Manga220.png";
         else if (<%= results[0].a %> > 13.5)
-          document.getElementById("veloc").src = "/vientos/Manga160.png";
+        document.getElementById("veloc").src = "/vientos/Manga160.png";
         else if (<%= results[0].a %> > 8.5)
-          document.getElementById("veloc").src = "/vientos/Manga110.png";
+        document.getElementById("veloc").src = "/vientos/Manga110.png";
         else if (<%= results[0].a %> > 3)
-          document.getElementById("veloc").src = "/vientos/Manga55.png";
+        document.getElementById("veloc").src = "/vientos/Manga55.png";
 
 
         $('.manga').each(function () {
@@ -176,12 +174,7 @@
           <% }); %>
       </table>
     </div>
-    <script>
-
-function myFunction() {
-  alert("Page is loaded");
-}
-    </script>
+  </div>
 </body>
 
 </html>
