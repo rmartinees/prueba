@@ -4,8 +4,7 @@
 <head>
   <%- include ("../partials/header.ejs") %>
     <style>
-      <script src="jquery-3.5.1.min.js"></script>
-      .parent {
+      <script src="jquery-3.5.1.min.js"></script>.parent {
         position: relative;
         top: 0;
         left: 0;
@@ -82,9 +81,11 @@
         </table>
       </div>
       <br>
-      <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="campo" alt="Sin imagen aerodromo">
+      <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="campo"
+        alt="Sin imagen aerodromo">
       <img src="/vientos/rosaviento.png" class="rosaviento" data-rotate="90" alt="Rosa de vientos">
       <img src="/vientos/mangaviento.png" class="manga" data-rotate="90" alt="Manga de viento">
+      <img id="veloc" src="/vientos/Manga0.png" class="campo" alt="Manga velocidad de viento">
       <script>
         $('.manga').each(function () {
           var deg = $(this).data('rotate') || 0;
@@ -115,6 +116,18 @@
             'transform': rotate
           });
         });
+
+        if (rotate[0].a > 25)
+          document.getElementById("veloc").src = "/viento/Manga280.png";
+        else if (rotate[0].a > 19)
+          document.getElementById("veloc").src = "/viento/Manga220.png";
+        else if (rotate[0].a > 13.5)
+          document.getElementById("veloc").src = "/viento/Manga160.png";
+        else if (rotate[0].a > 8.5)
+          document.getElementById("veloc").src = "/viento/Manga110.png";
+        else if (rotate[0].a > 3)
+          document.getElementById("veloc").src = "/viento/Manga55.png";
+
       </script>
 
       <!---  
