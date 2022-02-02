@@ -19,20 +19,25 @@
 
       .manga {
         position: absolute;
-        top: 200px;
-        left: 410px;
+        top: 250px;
+        left: 790px;
         width: 25px;
         border: 1px whitesmoke;
-
       }
 
       .rosaviento {
         position: absolute;
-        top: 150px;
-        left: 50px;
+        top: 200px;
+        left: 450px;
         width: 150px;
         border: 1px whitesmoke;
-
+      }
+      .velviento {
+        position: absolute;
+        top: 200px;
+        left: 750px;
+        width: 150px;
+        border: 1px whitesmoke;
       }
 
       #salida th,
@@ -83,7 +88,7 @@
         alt="Sin imagen aerodromo">
       <img src="/vientos/rosaviento.png" class="rosaviento" data-rotate="90" alt="Rosa de vientos">
       <img src="/vientos/mangaviento.png" class="manga" data-rotate="90" alt="Manga de viento">
-      <img id="veloc" src="/vientos/Manga0.png" class="campo" alt="Manga velocidad de viento">
+      <img id="veloc" src="/vientos/Manga0.png" class="velviento" alt="Manga velocidad de viento">
       <script>
 
         if ( <%= results[0].a %> > 25)
