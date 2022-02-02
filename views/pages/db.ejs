@@ -10,14 +10,14 @@
         left: 0;
       }
 
-      .image1 {
+      .campo {
         position: relative;
         top: 0;
         left: 0;
         border: 1px whitesmoke;
       }
 
-      .image2 {
+      .manga {
         position: absolute;
         top: 100px;
         left: 380px;
@@ -26,13 +26,19 @@
 
       }
 
-      .image4 {
+      .rosaviento {
         position: fixed;
         top: 170px;
         left: 200px;
         width: 150px;
         border: 1px whitesmoke;
 
+      }
+
+      # salida th,
+      # salida td {
+        border: 1px solid blueviolet;
+        border-radius: 10px;
       }
     </style>
 </head>
@@ -50,37 +56,39 @@
 
     <div class="parent">
 
-      <img src="/vientos/rosaviento.png" class="image4" data-rotate="90" alt="Rosa de vientos">
-      <table style="color:blue;text-align:center;  font-size: 14px;">
-        <tr>
-          <td>
-            <%= results[0].f %>
-          </td>
-          <td>
-            <%= results[0].t %> ºC
-          </td>
-          <td>
-            <%= results[0].d1 %> 
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= results[0].a %> km/h (prom)
-          </td>
-          <td>
-            <%= results[0].v %> km/h (instante)
-          </td>
-          <td>
-            <%= results[0].h %> km/h (max)
-          </td>
-        </tr>
-      </table>
+      <img src="/vientos/rosaviento.png" class="rosaviento" data-rotate="90" alt="Rosa de vientos">
+      <div id="salida">
+        <table style="color:blue;text-align:center;  font-size: 28px;width:50%">
+          <tr>
+            <td>
+              <%= results[0].f %>
+            </td>
+            <td>
+              <%= results[0].t %> ºC
+            </td>
+            <td>
+              <%= results[0].d1 %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= results[0].a %> km/h (prom)
+            </td>
+            <td>
+              <%= results[0].v %> km/h (instante)
+            </td>
+            <td>
+              <%= results[0].h %> km/h (max)
+            </td>
+          </tr>
+        </table>
+      </div>
       <br><br><br>
-      <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="image1"
+      <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="campo"
         alt="Sin imagen aerodromo">
-      <img src="/vientos/mangaviento.png" class="image2" data-rotate="90" alt="Manga de viento">
+      <img src="/vientos/mangaviento.png" class="manga" data-rotate="90" alt="Manga de viento">
       <script>
-        $('.image2').each(function () {
+        $('.manga').each(function () {
           var deg = $(this).data('rotate') || 0;
           //$(this).data('rotate')
           var rotate = 'rotate(' +
@@ -95,7 +103,7 @@
         });
         });
 
-        $('.image4').each(function () {
+        $('.rosaviento').each(function () {
           var deg = $(this).data('rotate') || 0;
           //$(this).data('rotate')
           var rotate = 'rotate(' + 
