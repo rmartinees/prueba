@@ -11,35 +11,38 @@
       }
 
       .campo {
-        position: relative;
-        top: 0;
-        left: 0;
-        border: 1px whitesmoke;
-      }
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 1px whitesmoke;
+    }
 
-      .manga {
-        position: absolute;
-        top: 250px;
-        left: 790px;
-        width: 25px;
-        border: 1px whitesmoke;
-      }
+    .manga {
+      position: relative;
+      float: left;
+      top: 0px;
+      left: 200px;
+      width: 25px;
+      border: 1px whitesmoke
+    }
 
-      .rosaviento {
-        position: absolute;
-        top: 200px;
-        left: 450px;
-        width: 150px;
-        border: 1px whitesmoke;
-      }
+    .rosaviento {
+      position: relative;
+      float: left;
+      left: 10px;
+      width: 150px;
+      border: 1px whitesmoke;
+      top: 0px;
+    }
 
-      .velviento {
-        position: absolute;
-        top: 90px;
-        left: 1000px;
-        width: 50px;
-        border: 1px whitesmoke;
-      }
+    .velviento {
+      position: absolute;
+      float: left;
+      top: 90px;
+      left: 920px;
+      width: 50px;
+      border: 1px whitesmoke;
+    }
 
       #salida th,
       #salida td {
@@ -82,11 +85,20 @@
         </table>
       </div>
       <br>
+
       <img src="https://aterriza.org/wp-content/uploads/aerodromo-lanzahita-900x280.jpg" class="campo"
         alt="Sin imagen aerodromo">
-      <img src="/vientos/rosaviento.png" class="rosaviento" data-rotate="90" alt="Rosa de vientos">
-      <img src="/vientos/mangaviento.png" class="manga" data-rotate="90" alt="Manga de viento">
-      <img id="veloc" src="/vientos/mangaviento.png" class="velviento" alt="Manga velocidad de viento">
+      <div>
+        <img src="/vientos/rosaviento.png" class="rosaviento" alt="Rosa de vientos">
+        <div>
+          <img src="/vientos/mangaviento.png" class="manga" alt="Manga de viento">
+          <div>
+            <img id="veloc" src="/vientos/mangaviento.png" class="velviento" alt="Manga velocidad de viento">
+          </div>
+        </div>
+      </div>
+
+
       <script>
 
         if ( <%= results[0].a %> > 25)
